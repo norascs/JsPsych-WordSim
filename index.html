@@ -12,6 +12,8 @@
     <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.1"></script>
     <script src="https://unpkg.com/@jspsych/plugin-image-button-response@1.1.1"></script>
     <script src="https://unpkg.com/@jspsych/plugin-audio-button-response@1.1.1"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.1"></script>
+
     <script src="https://unpkg.com/@jspsych/plugin-survey-likert@1.1.1"></script>
 
 
@@ -73,7 +75,7 @@ Press any key to begin.</p>
 timeline.push(trial)
 
 
-var trial3 = {
+var trial1 = {
   type: jsPsychHtmlButtonResponse,
   stimulus: `
         <h3>Comprehension Check</h3>
@@ -82,7 +84,7 @@ var trial3 = {
   choices: ['Not at all similar', 'Neutral', 'Similar ']
 
 };
-timeline.push(trial3)
+timeline.push(trial1)
 var likert_scale = [
 "Not similar at all",
         "Slightly similar", 
@@ -103,6 +105,16 @@ var likert_scale = [
 //   randomize_question_order: true
 // };
 // timeline.push(trial4)
+
+var comprehension = {
+  type: jsPsychSurveyText,
+  questions: [
+    {prompt: 'What is 10+14?'}
+  ]
+}
+timeline.push(comprehension);
+
+
 
 var trial2 = {
   type: jsPsychSurveyLikert,
